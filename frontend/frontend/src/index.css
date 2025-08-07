@@ -1,0 +1,521 @@
+/* Import Outfit Font */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Root Variables - Color Scheme */
+:root {
+  /* Primary Colors */
+  --primary: #4c6bf3;
+  --primary-dark: #3b56db;
+  --primary-light: #6b88f5;
+  
+  /* Light Theme Colors */
+  --bg-light: #ffffff;
+  --bg-light-secondary: #f8fafc;
+  --text-light: #1f2937;
+  --text-light-secondary: #6b7280;
+  --border-light: #e5e7eb;
+  --card-light: #ffffff;
+  
+  /* Dark Theme Colors */
+  --bg-dark: #111827;
+  --bg-dark-secondary: #1f2937;
+  --text-dark: #f9fafb;
+  --text-dark-secondary: #d1d5db;
+  --border-dark: #374151;
+  --card-dark: #1f2937;
+  
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #4c6bf3 0%, #6366f1 100%);
+  --gradient-secondary: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+}
+
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Utility Classes */
+.font-outfit {
+  font-family: 'Outfit', sans-serif;
+}
+
+.text-primary {
+  color: var(--primary);
+}
+
+.bg-primary {
+  background-color: var(--primary);
+}
+
+/* Custom Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 3px;
+  opacity: 0.5;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-dark);
+  opacity: 1;
+}
+
+/* Firefox scrollbar */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary) transparent;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 53%, 80%, 100% {
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    transform: translate3d(0, 0, 0);
+  }
+  40%, 43% {
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transform: translate3d(0, -8px, 0);
+  }
+  70% {
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transform: translate3d(0, -4px, 0);
+  }
+  90% {
+    transform: translate3d(0, -2px, 0);
+  }
+}
+
+@keyframes ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+/* Animation Classes */
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.animate-slideUp {
+  animation: slideUp 0.6s ease-out;
+}
+
+.animate-bounceIn {
+  animation: bounceIn 0.8s ease-out;
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 3s linear infinite;
+}
+
+.animate-bounce {
+  animation: bounce 1s infinite;
+}
+
+.animate-ping {
+  animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+/* Responsive Design - Mobile First Approach */
+
+/* Base styles for mobile devices (320px - 767px) */
+@media (max-width: 767px) {
+  .kiosk\:text-2xl {
+    font-size: 1.25rem;
+  }
+  
+  .kiosk\:text-lg {
+    font-size: 1rem;
+  }
+  
+  .kiosk\:text-base {
+    font-size: 0.875rem;
+  }
+  
+  .kiosk\:max-w-md {
+    max-width: 20rem;
+  }
+  
+  .kiosk\:max-h-chat {
+    max-height: calc(100vh - 200px);
+  }
+}
+
+/* Tablet Portrait (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .kiosk\:text-2xl {
+    font-size: 1.5rem;
+  }
+  
+  .kiosk\:text-lg {
+    font-size: 1.125rem;
+  }
+  
+  .kiosk\:text-base {
+    font-size: 1rem;
+  }
+  
+  .kiosk\:max-w-md {
+    max-width: 24rem;
+  }
+  
+  .kiosk\:max-h-chat {
+    max-height: calc(100vh - 180px);
+  }
+}
+
+/* Tablet Landscape & Desktop (1024px - 1439px) */
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .kiosk\:text-2xl {
+    font-size: 1.75rem;
+  }
+  
+  .kiosk\:text-lg {
+    font-size: 1.25rem;
+  }
+  
+  .kiosk\:text-base {
+    font-size: 1.125rem;
+  }
+  
+  .kiosk\:max-w-md {
+    max-width: 28rem;
+  }
+  
+  .kiosk\:max-h-chat {
+    max-height: calc(100vh - 160px);
+  }
+}
+
+/* Kiosk Portrait Mode (1080x1920) - Primary Target */
+/* Make all sizes a little bit bigger for this screen */
+@media (min-width: 1080px) and (max-width: 1200px) and (min-height: 1800px) {
+  .kiosk\:h-screen {
+    height: 100vh;
+    max-height: 1920px;
+  }
+  
+  .kiosk\:max-h-screen {
+    max-height: 1920px;
+  }
+  
+  .kiosk\:text-2xl {
+    font-size: 2.5rem;      /* was 2rem */
+    line-height: 2.75rem;   /* was 2.25rem */
+  }
+  
+  .kiosk\:text-lg {
+    font-size: 1.75rem;     /* was 1.5rem */
+    line-height: 2rem;      /* was 1.75rem */
+  }
+  
+  .kiosk\:text-base {
+    font-size: 1.5rem;      /* was 1.25rem */
+    line-height: 1.75rem;   /* was 1.5rem */
+  }
+  
+  .kiosk\:max-w-md {
+    max-width: 32rem;
+  }
+  
+  .kiosk\:max-h-chat {
+    max-height: calc(100vh - 200px);
+    min-height: calc(100vh - 200px);
+  }
+  
+  .kiosk\:py-2 {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+  
+  .kiosk\:h-20 {
+    height: 5rem;
+  }
+  
+  /* Enhanced touch targets for kiosk */
+  button {
+    min-height: 48px;
+    min-width: 48px;
+  }
+  
+  /* Better spacing for kiosk interaction */
+  .space-x-3 > * + * {
+    margin-left: 1rem;
+  }
+  
+  .space-y-4 > * + * {
+    margin-top: 1.5rem;
+  }
+  
+  /* Enhanced text areas for kiosk */
+  textarea {
+    font-size: 1.25rem !important;
+    line-height: 1.6 !important;
+    padding: 1rem 1.5rem !important;
+  }
+}
+
+/* Large Desktop & Ultra-wide (1440px+) */
+@media (min-width: 1440px) {
+  .kiosk\:text-2xl {
+    font-size: 2.25rem;
+  }
+  
+  .kiosk\:text-lg {
+    font-size: 1.5rem;
+  }
+  
+  .kiosk\:text-base {
+    font-size: 1.25rem;
+  }
+  
+  .kiosk\:max-w-md {
+    max-width: 36rem;
+  }
+  
+  .kiosk\:max-h-chat {
+    max-height: calc(100vh - 180px);
+  }
+}
+
+/* High DPI Displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  body {
+    -webkit-font-smoothing: subpixel-antialiased;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Dark Theme Overrides */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+  }
+}
+
+/* Focus Styles for Accessibility */
+button:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Print Styles */
+@media print {
+  * {
+    background: white !important;
+    color: black !important;
+    box-shadow: none !important;
+  }
+}
+
+/* Custom Utility Classes for Enhanced Styling */
+.gradient-primary {
+  background: var(--gradient-primary);
+}
+
+.gradient-secondary {
+  background: var(--gradient-secondary);
+}
+
+.shadow-custom {
+  box-shadow: 0 8px 32px rgba(76, 107, 243, 0.12);
+}
+
+.backdrop-blur {
+  backdrop-filter: blur(8px);
+}
+
+/* Interactive Elements */
+.interactive-element {
+  transition: all var(--transition-normal);
+  cursor: pointer;
+}
+
+.interactive-element:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.interactive-element:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-md);
+}
+
+/* Message Bubble Enhancements */
+.message-bubble {
+  position: relative;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+.message-bubble::before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+/* User message bubble tail */
+.message-bubble.user::before {
+  right: -8px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-left: 8px solid var(--primary);
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+}
+
+/* Bot message bubble tail */
+.message-bubble.bot::before {
+  left: -8px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-right: 8px solid #e5e7eb;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+}
+
+/* Dark theme message bubble tails */
+.dark .message-bubble.bot::before {
+  border-right-color: #374151;
+}
+
+/* Smooth scrolling for chat */
+.chat-container {
+  scroll-behavior: smooth;
+  overscroll-behavior: contain;
+}
+
+/* Loading states */
+.loading {
+  position: relative;
+  overflow: hidden;
+}
+
+.loading::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transform: translateX(-100%);
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}

@@ -1,0 +1,6 @@
+ollama>=0.1.6
+python-docx
+PyPDF2
+flask
+flask-cors
+werkzeug
